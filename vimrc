@@ -23,7 +23,8 @@ set fileformat=unix                                   "设置新文件的<EOL>�
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
 
 " :BundleList 等 
-set rtp+=~/.vim/vundle/
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " 使用Vundle来管理Vundle，这个必须要有。
 Bundle 'gmarik/vundle'
@@ -102,11 +103,11 @@ colorscheme wombat256mod                          "终端配色方案
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 
 set nobackup                                "设置无备份文件
-"set noswapfile                              "设置无临时文件
+" set noswapfile                              "设置无临时文件
 set vb t_vb=                                "关闭提示音
-~/.vim/vundle/
-let g:tagbar_phpctags_bin='~/.vim/bin/phpctags'
-let g:tagbar_ctags_bin="~/.vim/bin/ctags"
+
+" let g:tagbar_phpctags_bin='/usr/sbin/phpctags'
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 let g:tagbar_left = 0
 let g:tagbar_width = 20
 let g:tagbar_indent = 0
