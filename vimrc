@@ -24,7 +24,7 @@ set fileformats=unix,dos,mac                          "给出文件的<EOL>格�
 
 " :BundleList 等 
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle
 call vundle#rc()
 " 使用Vundle来管理Vundle，这个必须要有。
 Bundle 'gmarik/vundle'
