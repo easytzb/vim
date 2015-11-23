@@ -10,7 +10,7 @@ endif
 
 "set mouse=a                    " 在任何模式下启用鼠标
 set t_Co=256                   " 在终端启用256色
-"set backspace=indent,eol,start " 设置退格键可用
+set backspace=indent,eol,start " 设置退格键可用
 
 set nocompatible                                      "禁用 Vi 兼容模式
 
@@ -27,9 +27,10 @@ set fileformats=unix,dos,mac                          "给出文件的<EOL>格�
 set rtp+=~/.vim/vundle
 call vundle#rc()
 " 使用Vundle来管理Vundle，这个必须要有。
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'majutsushi/tagbar'
+"Bundle 'StanAngeloff/php.vim'
 "Bundle 'suan/vim-instant-markdown'
 Bundle 'vim-php/tagbar-phpctags.vim'
 Bundle 'michalbachowski/vim-wombat256mod'
@@ -103,7 +104,7 @@ colorscheme wombat256mod                          "终端配色方案
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 
 set nobackup                                "设置无备份文件
-" set noswapfile                              "设置无临时文件
+set noswapfile                              "设置无临时文件
 set vb t_vb=                                "关闭提示音
 
 " let g:tagbar_phpctags_bin='/usr/sbin/phpctags'
