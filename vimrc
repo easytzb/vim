@@ -22,27 +22,25 @@ set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1     "设置支持打开的文�
 set fileformat=unix                                   "设置新文件的<EOL>格式
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
 
-" :BundleList 等 
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
-set rtp+=~/.vim/vundle
-call vundle#rc()
-" 使用Vundle来管理Vundle，这个必须要有。
-"Bundle 'gmarik/vundle'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'majutsushi/tagbar'
-"Bundle 'StanAngeloff/php.vim'
-"Bundle 'suan/vim-instant-markdown'
-Bundle 'vim-php/tagbar-phpctags.vim'
-Bundle 'michalbachowski/vim-wombat256mod'
-Bundle 'shime/vim-livedown'
-"Bundle 'https://github.com/bpearson/vim-phpcs/blob/master/plugin/phpcs.vim'
-"Bundle 'jlanzarotta/bufexplorer'
-"Bundle 'winmanager'
-"Bundle 'scrooloose/nerdtree'
+filetype off                                           "启用文件类型侦测
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'michalbachowski/vim-wombat256mod'
+"Plugin 'shime/vim-livedown'
+Plugin '2072/PHP-Indenting-for-VIm'
+"Plugin 'StanAngeloff/php.vim'
+"Plugin 'https://github.com/bpearson/vim-phpcs/blob/master/plugin/phpcs.vim'
+"Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'winmanager'
+"Plugin 'scrooloose/nerdtree'
+call vundle#end()
 
-filetype on                                           "启用文件类型侦测
-filetype plugin on                                    "针对不同的文件类型加载对应的插件
 filetype plugin indent on                             "启用缩进
+"filetype plugin on                                    "针对不同的文件类型加载对应的插件
 set smartindent                                       "启用智能对齐方式
 set noexpandtab                                       "将Tab键转换为空格
 set tabstop=4                                         "设置Tab键的宽度
@@ -71,7 +69,7 @@ nmap cs :CodeSniffErrorOnly<CR>
 " toggle the Tagbar window 
 nmap tb :TagbarToggle<CR>
 
-nmap gm :LivedownPreview<CR>
+" nmap gm :LivedownPreview<CR>
 
 " toggle the vwindow 
 "nmap wm :WMToggle<CR>
@@ -162,3 +160,13 @@ if exists("+showtabline")
 	set stal=2
 	set tabline=%!MyTabLine()
 endif
+
+function! PhpSyntaxOverride()
+	hi! def link phpDocTags  phpDefine
+	hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+	autocmd!
+	autocmd FileType php call PhpSyntaxOverride()
+augroup END
