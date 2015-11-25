@@ -9,4 +9,3 @@ else
 	cp ./vimrc ~/.vimrc
 fi
 vim -u ~/.vim/vimrc +PluginInstall +qall
-wget https://raw.githubusercontent.com/StanAngeloff/php.vim/master/syntax/php.vim -O ~/.vim/syntax/php.vim
