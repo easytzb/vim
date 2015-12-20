@@ -1,8 +1,7 @@
 #!/bin/sh
-if [ ! -d "~/.vim" ]; then 
+if [ -d "~/.vim" ]; then 
 	mv ~/.vim ~/.vim.bak
 fi 
-exit;
 git clone git@github.com:easytzb/vim.git ~/.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
