@@ -98,7 +98,7 @@ set cursorline                                        "突出显示当前行
 " set guifont=YaHei_Consolas_Hybrid:h10                 "设置字体:字号（字体名称空格用下划线代替）
 set wrap                                            "设置不自动换行
 
-colorscheme wombat256mod                          "终端配色方案
+"colorscheme wombat256mod                          "终端配色方案
 
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 
