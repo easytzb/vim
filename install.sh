@@ -13,6 +13,8 @@ elif [ $SHELL = "/bin/zsh" ]; then
 elif [ $SHELL = "/usr/local/bin/zsh" ]; then
 	echo 'alias vim="vim -u ~/.vim/vimrc"'>>~/.zshrc
 else 
-	cp ./vimrc ~/.vimrc
+	cp ~/.vim/vimrc ~/.vimrc
 fi
 vim -u ~/.vim/vimrc +PluginInstall +qall
+sed -e 's/"colorscheme/colorscheme/' vimrc > tmp
+mv -f tmp vimrc
