@@ -15,5 +15,5 @@ else
 	cp ~/.vim/vimrc ~/.vimrc
 fi
 vim -u ~/.vim/vimrc +PluginInstall +qall
-sed -e 's/"colorscheme/colorscheme/' vimrc > tmp
-mv -f tmp vimrc
+sed -e 's/"colorscheme/colorscheme/' ~/.vim/vimrc > tmp
+mv -f tmp ~/.vim/vimrc
