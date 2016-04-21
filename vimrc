@@ -31,6 +31,16 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'michalbachowski/vim-wombat256mod'
+
+"cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer  
+"C-family languages support: add --clang-completer when calling ./install.py
+"C# support: add --omnisharp-completer when calling ./install.py
+"Go support: ensure go is installed and add --gocode-completer when calling ./install.py
+"TypeScript support: install nodejs and npm then install the TypeScript SDK with npm install -g typescript
+"JavaScript support: install nodejs and npm and add --tern-completer when calling ./install.py
+"Rust support: install rustc and cargo and add --racer-completer when calling ./install.py
+Plugin 'Valloric/YouCompleteMe'
+
 "Plugin 'shime/vim-livedown'
 "Plugin '2072/PHP-Indenting-for-VIm'
 "Plugin 'StanAngeloff/php.vim'
@@ -109,7 +119,7 @@ set vb t_vb=                                "关闭提示音
 " let g:tagbar_phpctags_bin='/usr/sbin/phpctags'
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 let g:tagbar_left = 0
-let g:tagbar_width = 20
+let g:tagbar_width = 40
 let g:tagbar_indent = 0
 let g:tagbar_autoshowtag = 1
 "let g:winManagerWidth = 20
