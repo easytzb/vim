@@ -13,6 +13,7 @@ set t_Co=256                   " 在终端启用256色
 set backspace=indent,eol,start " 设置退格键可用
 
 set nocompatible                                      "禁用 Vi 兼容模式
+set autochdir
 
 set encoding=utf-8                                    "设置gvim内部编码
 set fileencoding=utf-8                                "设置当前文件编码
