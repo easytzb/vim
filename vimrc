@@ -11,6 +11,7 @@ endif
 "set mouse=a                    " 在任何模式下启用鼠标
 set t_Co=256                   " 在终端启用256色
 set backspace=indent,eol,start " 设置退格键可用
+set buftype=
 
 set nocompatible                                      "禁用 Vi 兼容模式
 set autochdir
@@ -42,13 +43,13 @@ Plugin 'StanAngeloff/php.vim'
 "TypeScript support: install nodejs and npm then install the TypeScript SDK with npm install -g typescript
 "JavaScript support: install nodejs and npm and add --tern-completer when calling ./install.py
 "Rust support: install rustc and cargo and add --racer-completer when calling ./install.py
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype plugin indent on                             "启用缩进
 "filetype plugin on                                    "针对不同的文件类型加载对应的插件
 set smartindent                                       "启用智能对齐方式
-set noexpandtab                                         "将Tab键转换为空格
+set expandtab                                         "将Tab键转换为空格
 set tabstop=4                                         "设置Tab键的宽度
 set shiftwidth=4                                      "换行时自动缩进4个空格
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度的空格
@@ -98,6 +99,7 @@ set wrap                                            "设置不自动换行
 
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 set nobackup                                "设置无备份文件
+set statusline=%F
 set noswapfile                              "设置无临时文件
 set vb t_vb=                                "关闭提示音
 
@@ -139,7 +141,7 @@ if exists("+showtabline")
 endif
 
 "Plugin majutsushi/tagbar
-" let g:tagbar_phpctags_bin='/usr/sbin/phpctags'
+let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 let g:tagbar_left = 0
 let g:tagbar_width = 40
