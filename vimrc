@@ -46,16 +46,16 @@ Plugin 'StanAngeloff/php.vim'
 "Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
-filetype plugin indent on                             "启用缩进
-"filetype plugin on                                    "针对不同的文件类型加载对应的插件
-set smartindent                                       "启用智能对齐方式
-set expandtab                                         "将Tab键转换为空格
-set tabstop=4                                         "设置Tab键的宽度
-set shiftwidth=4                                      "换行时自动缩进4个空格
-set smarttab                                          "指定按一次backspace就删除shiftwidth宽度的空格
-set foldenable                                        "启用折叠
-set foldmethod=indent                                 "indent 折叠方式
-" set foldmethod=marker                                "marker 折叠方式
+filetype plugin indent on       "启用缩进
+"filetype plugin on             "针对不同的文件类型加载对应的插件
+set smartindent                 "启用智能对齐方式
+set expandtab                   "将Tab键转换为空格
+set tabstop=4                   "设置Tab键的宽度
+set shiftwidth=4                "换行时自动缩进4个空格
+set softtabstop=4               "方便在开启了et后使用退格（backspace）键，每次退格将删除X个空格
+set smarttab                    "开启时，在行首按TAB将加入sw个空格，否则加入ts个空格
+set foldenable                  "启用折叠
+set foldmethod=indent           "indent 折叠方式
 
 " 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
