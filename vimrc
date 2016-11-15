@@ -1,29 +1,6 @@
 "Configuration file for vim
 
-"colorscheme wombat256mod                          "终端配色方案
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-php/tagbar-phpctags.vim'
-Plugin 'michalbachowski/vim-wombat256mod'
-"Plugin 'scrooloose/syntastic'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'rizzatti/dash.vim'
-
-"cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer  
-"C-family languages support: add --clang-completer when calling ./install.py
-"C# support: add --omnisharp-completer when calling ./install.py
-"Go support: ensure go is installed and add --gocode-completer when calling ./install.py
-"TypeScript support: install nodejs and npm then install the TypeScript SDK with npm install -g typescript
-"JavaScript support: install nodejs and npm and add --tern-completer when calling ./install.py
-"Rust support: install rustc and cargo and add --racer-completer when calling ./install.py
-"Plugin 'Valloric/YouCompleteMe'
-call vundle#end()
-
+set nocompatible                "禁用 Vi 兼容模式
 syntax on
 filetype off                    "启用文件类型侦测
 filetype plugin indent on       "启用缩进
@@ -64,6 +41,30 @@ set incsearch                   "在输入要搜索的文字时，实时匹配
 set encoding=utf-8              "设置gvim内部编码
 set fileencoding=utf-8          "设置当前文件编码
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1     "设置支持打开的文件的编码
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'fatih/vim-go'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'michalbachowski/vim-wombat256mod'
+"Plugin 'scrooloose/syntastic'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'rizzatti/dash.vim'
+
+"cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer  
+"C-family languages support: add --clang-completer when calling ./install.py
+"C# support: add --omnisharp-completer when calling ./install.py
+"Go support: ensure go is installed and add --gocode-completer when calling ./install.py
+"TypeScript support: install nodejs and npm then install the TypeScript SDK with npm install -g typescript
+"JavaScript support: install nodejs and npm and add --tern-completer when calling ./install.py
+"Rust support: install rustc and cargo and add --racer-completer when calling ./install.py
+"Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+
+"colorscheme wombat256mod                          "终端配色方案
 
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
