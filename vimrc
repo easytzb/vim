@@ -52,7 +52,8 @@ Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'michalbachowski/vim-wombat256mod'
 "Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'rizzatti/dash.vim'
+Plugin 'stephpy/vim-php-cs-fixer'
+"Plugin 'rizzatti/dash.vim'
 
 "cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer  
 "C-family languages support: add --clang-completer when calling ./install.py
@@ -79,8 +80,8 @@ nmap cM :%s/\r$//g<cr>:noh<cr>
 nmap cf :Autoformat<CR><CR>
 
 "Dash搜索
-nmap <silent> <leader>d <Plug>DashSearch
-nmap <silent> <leader>D <Plug>DashGlobalSearch
+"nmap <silent> <leader>d <Plug>DashSearch
+"nmap <silent> <leader>D <Plug>DashGlobalSearch
 
 "toggle the Tagbar window 
 nmap tb :TagbarToggle<CR>
@@ -99,6 +100,20 @@ au BufWrite /private/tmp/crontab.* set nowritebackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+"If php-cs-fixer is in $PATH, you don't need to define line below
+"let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_level = "symfony"              " which level ?
+let g:php_cs_fixer_config = "default"             " configuration
+"let g:php_cs_fixer_config_file = '.php_cs'       " configuration file
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" If you want to define specific fixers:
+"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+"nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+"nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 " http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
 if exists("+showtabline")
