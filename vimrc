@@ -24,7 +24,6 @@ set wrap                        "设置不自动换行
 set autoread                    "当文件在外部被修改，自动更新该文件
 set writebackup                 "保存文件前建立备份，保存成功后删除该备份
 set nobackup                    "设置无备份文件
-set statusline=%F
 set noswapfile                  "设置无临时文件
 set vb t_vb=                    "关闭提示音
 "set mouse=a                    " 在任何模式下启用鼠标
@@ -52,10 +51,10 @@ Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'michalbachowski/vim-wombat256mod'
 "Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'guenti/vim-php-cs-fixer'
 "Plugin 'rizzatti/dash.vim'
 
-"cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer  
+"cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer
 "C-family languages support: add --clang-completer when calling ./install.py
 "C# support: add --omnisharp-completer when calling ./install.py
 "Go support: ensure go is installed and add --gocode-completer when calling ./install.py
@@ -76,14 +75,14 @@ nmap cS :%s/\s\+$//g<cr>:noh<cr>
 "常规模式下输入 cM 清除行尾 ^M 符号
 nmap cM :%s/\r$//g<cr>:noh<cr>
 
-"常规模式下输入 cf 自动格格式化 
+"常规模式下输入 cf 自动格格式化
 nmap cf :Autoformat<CR><CR>
 
 "Dash搜索
 "nmap <silent> <leader>d <Plug>DashSearch
 "nmap <silent> <leader>D <Plug>DashGlobalSearch
 
-"toggle the Tagbar window 
+"toggle the Tagbar window
 nmap tb :TagbarToggle<CR>
 
 "Ctrl + K 插入模式下光标向上移动
@@ -145,6 +144,35 @@ if exists("+showtabline")
 	set stal=2
 	set tabline=%!MyTabLine()
 endif
+
+"statusline
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "文件路径
+set statusline+=%2*\ %y\                                  "文件类型
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "编码1
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "编码2
+set statusline+=%4*\ %{&ff}\                              "文件系统(dos/unix..)
+set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "语言 & 是否高亮，H表示高亮?
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "光标所在行号/总行数 (百分比)
+set statusline+=%9*\ col:%03c\                            "光标所在列
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Read only? Top/bottom
+function! HighlightSearch()
+      if &hls
+          return 'H'
+      else
+          return ''
+      endif
+endfunction
+hi User1 ctermfg=white  ctermbg=darkred
+hi User2 ctermfg=blue  ctermbg=58
+hi User3 ctermfg=white  ctermbg=100
+hi User4 ctermfg=darkred  ctermbg=95
+hi User5 ctermfg=darkred  ctermbg=77
+hi User7 ctermfg=darkred  ctermbg=blue  cterm=bold
+hi User8 ctermfg=231  ctermbg=blue
+"hi User9 ctermfg=#ffffff  ctermbg=#810085
+hi User0 ctermfg=yellow  ctermbg=138
 
 "Plugin majutsushi/tagbar
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
