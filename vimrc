@@ -154,7 +154,7 @@ set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "编码1
 set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "编码2
 set statusline+=%4*\ %{&ff}\                              "文件系统(dos/unix..)
 set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "语言 & 是否高亮，H表示高亮?
-set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "光标所在行号/总行数 (百分比)
+set statusline+=%8*\ %=\ row:\ %l/%L\                       "光标所在行号/总行数 (百分比)
 set statusline+=%9*\ col:%03c\                            "光标所在列
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Read only? Top/bottom
 function! HighlightSearch()
@@ -191,3 +191,9 @@ augroup phpSyntaxOverride
 	autocmd!
 	autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+"前端文件类型缩进改为2
+autocmd FileType javascript,html,css,xml set ai
+autocmd FileType javascript,html,css,xml set sw=2
+autocmd FileType javascript,html,css,xml set ts=2
+autocmd FileType javascript,html,css,xml set sts=2
