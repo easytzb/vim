@@ -200,3 +200,6 @@ autocmd FileType javascript,html,css,xml set sts=2
 
 "命令W映射到w
 cmap W w
+cmap X x
+cmap A a
+cmap Q q
