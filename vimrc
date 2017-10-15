@@ -197,3 +197,6 @@ autocmd FileType javascript,html,css,xml set ai
 autocmd FileType javascript,html,css,xml set sw=2
 autocmd FileType javascript,html,css,xml set ts=2
 autocmd FileType javascript,html,css,xml set sts=2
+
+"命令W映射到w
+cmap W w
