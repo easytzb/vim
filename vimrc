@@ -15,7 +15,6 @@ set foldenable                  "启用折叠
 set foldmethod=indent           "indent 折叠方式
 set ignorecase                  "搜索模式里忽略大小写
 set smartcase                   "如果搜索模式包含大写字符，不使用 'ignorecase' 选项，只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用
-"set noincsearch                "在输入要搜索的文字时，取消实时匹配
 set number                      "显示行号
 set laststatus=2                "启用状态栏信息
 set cmdheight=2                 "设置命令行的高度为2，默认为1
@@ -30,8 +29,6 @@ set vb t_vb=                    "关闭提示音
 set t_Co=256                    " 在终端启用256色
 set backspace=indent,eol,start  "设置退格键可用
 set buftype=
-set nocompatible                "禁用 Vi 兼容模式
-set autochdir
 set fileformat=unix             "设置新文件的<EOL>格式
 set fileformats=unix,dos,mac    "给出文件的<EOL>格式类型
 set modelines=0		            "CVE-2007-2438
