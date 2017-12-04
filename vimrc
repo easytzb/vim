@@ -114,35 +114,46 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
-" http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
+if has('gui')
+  set guioptions-=e
+endif
 if exists("+showtabline")
-	function MyTabLine()
-		let s = ''
-		let t = tabpagenr()
-		let i = 1
-		while i <= tabpagenr('$')
-			let buflist = tabpagebuflist(i)
-			let winnr = tabpagewinnr(i)
-			let s .= '%' . i . 'T'
-			let s .= (i == t ? '%1*' : '%2*')
-			let s .= ' '
-			let s .= i . ')'
-			let s .= ' %*'
-			let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-			let file = bufname(buflist[winnr - 1])
-			let file = fnamemodify(file, ':p:t')
-			if file == ''
-				let file = '[No Name]'
-			endif
-			let s .= file
-			let i = i + 1
-		endwhile
-		let s .= '%T%#TabLineFill#%='
-		let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-		return s
-	endfunction
-	set stal=2
-	set tabline=%!MyTabLine()
+  function MyTabLine()
+    let s = ''
+    let t = tabpagenr()
+    let i = 1
+    while i <= tabpagenr('$')
+      let buflist = tabpagebuflist(i)
+      let winnr = tabpagewinnr(i)
+      let s .= '%' . i . 'T'
+      let s .= (i == t ? '%1*' : '%2*')
+      let s .= ' '
+      let s .= i . ':'
+      let s .= winnr . '/' . tabpagewinnr(i,'$')
+      let s .= ' %*'
+      let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+      let bufnr = buflist[winnr - 1]
+      let file = bufname(bufnr)
+      let buftype = getbufvar(bufnr, 'buftype')
+      if buftype == 'nofile'
+        if file =~ '\/.'
+          let file = substitute(file, '.*\/\ze.', '', '')
+        endif
+      else
+        let file = fnamemodify(file, ':p:t')
+      endif
+      if file == ''
+        let file = '[No Name]'
+      endif
+      let s .= file
+      let i = i + 1
+    endwhile
+    let s .= '%T%#TabLineFill#%='
+    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return s
+  endfunction
+  set stal=2
+  set tabline=%!MyTabLine()
 endif
 
 "statusline
@@ -200,6 +211,3 @@ autocmd FileType javascript,html,css,xml set sts=2
 
 "命令W映射到w
 cmap W w
-cmap X x
-cmap A a
-cmap Q q
