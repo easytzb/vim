@@ -1,6 +1,7 @@
 "Configuration file for vim
 
 set nocompatible                "禁用 Vi 兼容模式
+set wildignorecase              "忽略命令中的文件大小写
 syntax on
 filetype off                    "启用文件类型侦测
 filetype plugin indent on       "启用缩进
