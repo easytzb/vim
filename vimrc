@@ -32,7 +32,7 @@ set backspace=indent,eol,start  "设置退格键可用
 set buftype=
 set fileformat=unix             "设置新文件的<EOL>格式
 set fileformats=unix,dos,mac    "给出文件的<EOL>格式类型
-set modelines=0		            "CVE-2007-2438
+set modelines=0                 "CVE-2007-2438
 set hlsearch                    "高亮搜索
 set incsearch                   "在输入要搜索的文字时，实时匹配
 set encoding=utf-8              "设置gvim内部编码
@@ -113,45 +113,45 @@ nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 if has('gui')
-  set guioptions-=e
+    set guioptions-=e
 endif
 if exists("+showtabline")
-  function MyTabLine()
-    let s = ''
-    let t = tabpagenr()
-    let i = 1
-    while i <= tabpagenr('$')
-      let buflist = tabpagebuflist(i)
-      let winnr = tabpagewinnr(i)
-      let s .= '%' . i . 'T'
-      let s .= (i == t ? '%1*' : '%2*')
-      let s .= ' '
-      let s .= i . ':'
-      let s .= winnr . '/' . tabpagewinnr(i,'$')
-      let s .= ' %*'
-      let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-      let bufnr = buflist[winnr - 1]
-      let file = bufname(bufnr)
-      let buftype = getbufvar(bufnr, 'buftype')
-      if buftype == 'nofile'
-        if file =~ '\/.'
-          let file = substitute(file, '.*\/\ze.', '', '')
-        endif
-      else
-        let file = fnamemodify(file, ':p:t')
-      endif
-      if file == ''
-        let file = '[No Name]'
-      endif
-      let s .= file
-      let i = i + 1
-    endwhile
-    let s .= '%T%#TabLineFill#%='
-    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-    return s
-  endfunction
-  set stal=2
-  set tabline=%!MyTabLine()
+    function MyTabLine()
+        let s = ''
+        let t = tabpagenr()
+        let i = 1
+        while i <= tabpagenr('$')
+            let buflist = tabpagebuflist(i)
+            let winnr = tabpagewinnr(i)
+            let s .= '%' . i . 'T'
+            let s .= (i == t ? '%1*' : '%2*')
+            let s .= ' '
+            let s .= i . ':'
+            let s .= winnr . '/' . tabpagewinnr(i,'$')
+            let s .= ' %*'
+            let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+            let bufnr = buflist[winnr - 1]
+            let file = bufname(bufnr)
+            let buftype = getbufvar(bufnr, 'buftype')
+            if buftype == 'nofile'
+                if file =~ '\/.'
+                    let file = substitute(file, '.*\/\ze.', '', '')
+                endif
+            else
+                let file = fnamemodify(file, ':p:t')
+            endif
+            if file == ''
+                let file = '[No Name]'
+            endif
+            let s .= file
+            let i = i + 1
+        endwhile
+        let s .= '%T%#TabLineFill#%='
+        let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+        return s
+    endfunction
+    set stal=2
+    set tabline=%!MyTabLine()
 endif
 
 "statusline
@@ -167,11 +167,11 @@ set statusline+=%8*\ %=\ row:\ %l/%L\                       "光标所在行号/
 set statusline+=%9*\ col:%03c\                            "光标所在列
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Read only? Top/bottom
 function! HighlightSearch()
-      if &hls
-          return 'H'
-      else
-          return ''
-      endif
+    if &hls
+        return 'H'
+    else
+        return ''
+    endif
 endfunction
 hi User1 ctermfg=white  ctermbg=darkred
 hi User2 ctermfg=blue  ctermbg=58
@@ -193,19 +193,16 @@ let g:tagbar_autoshowtag = 1
 
 "Plugin StanAngeloff/php.vim
 function! PhpSyntaxOverride()
-	hi! def link phpDocTags  phpDefine
-	hi! def link phpDocParam phpType
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
 endfunction
 augroup phpSyntaxOverride
-	autocmd!
-	autocmd FileType php call PhpSyntaxOverride()
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
 "前端文件类型缩进改为2
-autocmd FileType javascript,html,css,xml set ai
-autocmd FileType javascript,html,css,xml set sw=2
-autocmd FileType javascript,html,css,xml set ts=2
-autocmd FileType javascript,html,css,xml set sts=2
+autocmd FileType javascript,html,css,xml setlocal ai ts=2 sts=2 sw=2 expandtab
 
 "命令W映射到w
 cmap W w
