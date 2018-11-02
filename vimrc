@@ -62,7 +62,7 @@ Plugin 'guenti/vim-php-cs-fixer'
 "Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
-"colorscheme wombat256mod                          "终端配色方案
+colorscheme wombat256mod                          "终端配色方案
 
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
