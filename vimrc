@@ -202,7 +202,10 @@ augroup phpSyntaxOverride
 augroup END
 
 "前端文件类型缩进改为2
-autocmd FileType javascript,html,scss,css,xml setlocal ai ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript,html,scss,wxss,wxml,css,xml setlocal ai ts=2 sts=2 sw=2 expandtab
+au BufRead,BufNewFile *.scss setfiletype css 
+au BufRead,BufNewFile *.wxss setfiletype css 
+au BufRead,BufNewFile *.wxml setfiletype html 
 
 "命令W映射到w
 cmap W w
