@@ -49,7 +49,7 @@ Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'michalbachowski/vim-wombat256mod'
 "Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'guenti/vim-php-cs-fixer'
+Plugin 'stephpy/vim-php-cs-fixer'
 "Plugin 'rizzatti/dash.vim'
 
 "cd ~/.vim/bundle/YouCompleteMe && npm install -g typescript && ./install.py  --tern-completer --gocode-completer
