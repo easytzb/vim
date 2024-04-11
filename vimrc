@@ -31,6 +31,7 @@ set t_Co=256                    " 在终端启用256色
 set backspace=indent,eol,start  "设置退格键可用
 set buftype=
 set fileformat=unix             "设置新文件的<EOL>格式
+set history=10000               "保存历史命令数
 set fileformats=unix,dos,mac    "给出文件的<EOL>格式类型
 set modelines=0                 "CVE-2007-2438
 set hlsearch                    "高亮搜索
